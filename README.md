@@ -104,7 +104,7 @@ Migrating from an earlier version of this project? See our [upgrade guide](Migra
 // or
 // $db = new \Delight\Db\PdoDsn('sqlite:../Databases/my-database.sqlite');
 
-$auth = new \Delight\Auth\Auth($db);
+$auth = new \rockymc\Auth\Auth($db);
 ```
 
 If you have an open `PDO` connection already, just re-use it.
@@ -125,16 +125,16 @@ try {
 
     // we have signed up a new user with the ID `$userId`
 }
-catch (\Delight\Auth\InvalidEmailException $e) {
+catch (\rockymc\Auth\InvalidEmailException $e) {
     // invalid email address
 }
-catch (\Delight\Auth\InvalidPasswordException $e) {
+catch (\rockymc\Auth\InvalidPasswordException $e) {
     // invalid password
 }
-catch (\Delight\Auth\UserAlreadyExistsException $e) {
+catch (\rockymc\Auth\UserAlreadyExistsException $e) {
     // user already exists
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // too many requests
 }
 ```
@@ -159,16 +159,16 @@ try {
 
     // user is logged in
 }
-catch (\Delight\Auth\InvalidEmailException $e) {
+catch (\rockymc\Auth\InvalidEmailException $e) {
     // wrong email address
 }
-catch (\Delight\Auth\InvalidPasswordException $e) {
+catch (\rockymc\Auth\InvalidPasswordException $e) {
     // wrong password
 }
-catch (\Delight\Auth\EmailNotVerifiedException $e) {
+catch (\rockymc\Auth\EmailNotVerifiedException $e) {
     // email not verified
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // too many requests
 }
 ```
@@ -185,16 +185,16 @@ try {
 
     // email address has been verified
 }
-catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
+catch (\rockymc\Auth\InvalidSelectorTokenPairException $e) {
     // invalid token
 }
-catch (\Delight\Auth\TokenExpiredException $e) {
+catch (\rockymc\Auth\TokenExpiredException $e) {
     // token expired
 }
-catch (\Delight\Auth\UserAlreadyExistsException $e) {
+catch (\rockymc\Auth\UserAlreadyExistsException $e) {
     // email address already exists
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // too many requests
 }
 ```
@@ -236,16 +236,16 @@ try {
 
     // request has been generated
 }
-catch (\Delight\Auth\InvalidEmailException $e) {
+catch (\rockymc\Auth\InvalidEmailException $e) {
     // invalid email address
 }
-catch (\Delight\Auth\EmailNotVerifiedException $e) {
+catch (\rockymc\Auth\EmailNotVerifiedException $e) {
     // email not verified
 }
-catch (\Delight\Auth\ResetDisabledException $e) {
+catch (\rockymc\Auth\ResetDisabledException $e) {
     // password reset is disabled
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // too many requests
 }
 ```
@@ -277,19 +277,19 @@ try {
 
     // password has been reset
 }
-catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
+catch (\rockymc\Auth\InvalidSelectorTokenPairException $e) {
     // invalid token
 }
-catch (\Delight\Auth\TokenExpiredException $e) {
+catch (\rockymc\Auth\TokenExpiredException $e) {
     // token expired
 }
-catch (\Delight\Auth\ResetDisabledException $e) {
+catch (\rockymc\Auth\ResetDisabledException $e) {
     // password reset is disabled
 }
-catch (\Delight\Auth\InvalidPasswordException $e) {
+catch (\rockymc\Auth\InvalidPasswordException $e) {
     // invalid password
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // too many requests
 }
 ```
@@ -304,13 +304,13 @@ try {
 
     // password has been changed
 }
-catch (\Delight\Auth\NotLoggedInException $e) {
+catch (\rockymc\Auth\NotLoggedInException $e) {
     // not logged in
 }
-catch (\Delight\Auth\InvalidPasswordException $e) {
+catch (\rockymc\Auth\InvalidPasswordException $e) {
     // invalid password(s)
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // too many requests
 }
 ```
@@ -338,19 +338,19 @@ try {
         // we can't say if the user is who they claim to be
     }
 }
-catch (\Delight\Auth\InvalidEmailException $e) {
+catch (\rockymc\Auth\InvalidEmailException $e) {
     // invalid email address
 }
-catch (\Delight\Auth\UserAlreadyExistsException $e) {
+catch (\rockymc\Auth\UserAlreadyExistsException $e) {
     // email address already exists
 }
-catch (\Delight\Auth\EmailNotVerifiedException $e) {
+catch (\rockymc\Auth\EmailNotVerifiedException $e) {
     // account not verified
 }
-catch (\Delight\Auth\NotLoggedInException $e) {
+catch (\rockymc\Auth\NotLoggedInException $e) {
     // not logged in
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // too many requests
 }
 ```
@@ -375,10 +375,10 @@ try {
 
     // the user may now respond to the confirmation request (usually by clicking a link)
 }
-catch (\Delight\Auth\ConfirmationRequestNotFound $e) {
+catch (\rockymc\Auth\ConfirmationRequestNotFound $e) {
     // no earlier request found that could be re-sent
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // there have been too many requests -- try again later
 }
 ```
@@ -393,10 +393,10 @@ try {
 
     // the user may now respond to the confirmation request (usually by clicking a link)
 }
-catch (\Delight\Auth\ConfirmationRequestNotFound $e) {
+catch (\rockymc\Auth\ConfirmationRequestNotFound $e) {
     // no earlier request found that could be re-sent
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // there have been too many requests -- try again later
 }
 ```
@@ -518,7 +518,7 @@ Here’s how to use this library with your own tables for custom user informatio
  1. If you need the custom user information only rarely, you may just retrieve it as needed. If you need it more frequently, however, you’d probably want to have it in your session data. The following method is how you can load and access your data in a reliable way:
 
     ```php
-    function getUserInfo(\Delight\Auth\Auth $auth) {
+    function getUserInfo(\rockymc\Auth\Auth $auth) {
         if (!$auth->isLoggedIn()) {
             return null;
         }
@@ -547,10 +547,10 @@ try {
         // we can't say if the user is who they claim to be
     }
 }
-catch (\Delight\Auth\NotLoggedInException $e) {
+catch (\rockymc\Auth\NotLoggedInException $e) {
     // the user is not signed in
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // too many requests
 }
 ```
@@ -564,19 +564,19 @@ Users may have no role at all (which they do by default), exactly one role, or a
 #### Checking roles
 
 ```php
-if ($auth->hasRole(\Delight\Auth\Role::SUPER_MODERATOR)) {
+if ($auth->hasRole(\rockymc\Auth\Role::SUPER_MODERATOR)) {
     // the user is a super moderator
 }
 
 // or
 
-if ($auth->hasAnyRole(\Delight\Auth\Role::DEVELOPER, \Delight\Auth\Role::MANAGER)) {
+if ($auth->hasAnyRole(\rockymc\Auth\Role::DEVELOPER, \rockymc\Auth\Role::MANAGER)) {
     // the user is either a developer, or a manager, or both
 }
 
 // or
 
-if ($auth->hasAllRoles(\Delight\Auth\Role::DEVELOPER, \Delight\Auth\Role::MANAGER)) {
+if ($auth->hasAllRoles(\rockymc\Auth\Role::DEVELOPER, \rockymc\Auth\Role::MANAGER)) {
     // the user is both a developer and a manager
 }
 ```
@@ -586,28 +586,28 @@ While the method `hasRole` takes exactly one role as its argument, the two metho
 #### Available roles
 
 ```php
-\Delight\Auth\Role::ADMIN;
-\Delight\Auth\Role::AUTHOR;
-\Delight\Auth\Role::COLLABORATOR;
-\Delight\Auth\Role::CONSULTANT;
-\Delight\Auth\Role::CONSUMER;
-\Delight\Auth\Role::CONTRIBUTOR;
-\Delight\Auth\Role::COORDINATOR;
-\Delight\Auth\Role::CREATOR;
-\Delight\Auth\Role::DEVELOPER;
-\Delight\Auth\Role::DIRECTOR;
-\Delight\Auth\Role::EDITOR;
-\Delight\Auth\Role::EMPLOYEE;
-\Delight\Auth\Role::MAINTAINER;
-\Delight\Auth\Role::MANAGER;
-\Delight\Auth\Role::MODERATOR;
-\Delight\Auth\Role::PUBLISHER;
-\Delight\Auth\Role::REVIEWER;
-\Delight\Auth\Role::SUBSCRIBER;
-\Delight\Auth\Role::SUPER_ADMIN;
-\Delight\Auth\Role::SUPER_EDITOR;
-\Delight\Auth\Role::SUPER_MODERATOR;
-\Delight\Auth\Role::TRANSLATOR;
+\rockymc\Auth\Role::ADMIN;
+\rockymc\Auth\Role::AUTHOR;
+\rockymc\Auth\Role::COLLABORATOR;
+\rockymc\Auth\Role::CONSULTANT;
+\rockymc\Auth\Role::CONSUMER;
+\rockymc\Auth\Role::CONTRIBUTOR;
+\rockymc\Auth\Role::COORDINATOR;
+\rockymc\Auth\Role::CREATOR;
+\rockymc\Auth\Role::DEVELOPER;
+\rockymc\Auth\Role::DIRECTOR;
+\rockymc\Auth\Role::EDITOR;
+\rockymc\Auth\Role::EMPLOYEE;
+\rockymc\Auth\Role::MAINTAINER;
+\rockymc\Auth\Role::MANAGER;
+\rockymc\Auth\Role::MODERATOR;
+\rockymc\Auth\Role::PUBLISHER;
+\rockymc\Auth\Role::REVIEWER;
+\rockymc\Auth\Role::SUBSCRIBER;
+\rockymc\Auth\Role::SUPER_ADMIN;
+\rockymc\Auth\Role::SUPER_EDITOR;
+\rockymc\Auth\Role::SUPER_MODERATOR;
+\rockymc\Auth\Role::TRANSLATOR;
 ```
 
 You can use any of these roles and ignore those that you don’t need.
@@ -619,12 +619,12 @@ The permissions of each user are encoded in the way that role requirements are s
 For larger projects, it is often recommended to maintain the definition of permissions in a single place. You then don’t check for *roles* in your business logic, but you check for *individual permissions*. You could implement that concept as follows:
 
 ```php
-function canEditArticle(\Delight\Auth\Auth $auth) {
+function canEditArticle(\rockymc\Auth\Auth $auth) {
     return $auth->hasAnyRole(
-        \Delight\Auth\Role::MODERATOR,
-        \Delight\Auth\Role::SUPER_MODERATOR,
-        \Delight\Auth\Role::ADMIN,
-        \Delight\Auth\Role::SUPER_ADMIN
+        \rockymc\Auth\Role::MODERATOR,
+        \rockymc\Auth\Role::SUPER_MODERATOR,
+        \rockymc\Auth\Role::ADMIN,
+        \rockymc\Auth\Role::SUPER_ADMIN
     );
 }
 
@@ -662,8 +662,8 @@ namespace My\Namespace;
 
 final class MyRole {
 
-    const CUSTOMER_SERVICE_AGENT = \Delight\Auth\Role::REVIEWER;
-    const FINANCIAL_DIRECTOR = \Delight\Auth\Role::COORDINATOR;
+    const CUSTOMER_SERVICE_AGENT = \rockymc\Auth\Role::REVIEWER;
+    const FINANCIAL_DIRECTOR = \rockymc\Auth\Role::COORDINATOR;
 
     private function __construct() {}
 
@@ -681,9 +681,9 @@ The example above would allow you to use
 instead of
 
 ```php
-\Delight\Auth\Role::REVIEWER;
+\rockymc\Auth\Role::REVIEWER;
 // and
-\Delight\Auth\Role::COORDINATOR;
+\rockymc\Auth\Role::COORDINATOR;
 ```
 
 Just remember *not* to alias a *single* included role to *multiple* roles with custom names.
@@ -705,10 +705,10 @@ try {
         // we can't say if the user is who they claim to be
     }
 }
-catch (\Delight\Auth\NotLoggedInException $e) {
+catch (\rockymc\Auth\NotLoggedInException $e) {
     // the user is not signed in
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // too many requests
 }
 ```
@@ -734,7 +734,7 @@ try {
 
     // do something with the resource or feature
 }
-catch (\Delight\Auth\TooManyRequestsException $e) {
+catch (\rockymc\Auth\TooManyRequestsException $e) {
     // operation cancelled
 
     \http_response_code(429);
@@ -768,13 +768,13 @@ try {
 
     // we have signed up a new user with the ID `$userId`
 }
-catch (\Delight\Auth\InvalidEmailException $e) {
+catch (\rockymc\Auth\InvalidEmailException $e) {
     // invalid email address
 }
-catch (\Delight\Auth\InvalidPasswordException $e) {
+catch (\rockymc\Auth\InvalidPasswordException $e) {
     // invalid password
 }
-catch (\Delight\Auth\UserAlreadyExistsException $e) {
+catch (\rockymc\Auth\UserAlreadyExistsException $e) {
     // user already exists
 }
 ```
@@ -791,7 +791,7 @@ Deleting users by their ID:
 try {
     $auth->admin()->deleteUserById($_POST['id']);
 }
-catch (\Delight\Auth\UnknownIdException $e) {
+catch (\rockymc\Auth\UnknownIdException $e) {
     // unknown ID
 }
 ```
@@ -802,7 +802,7 @@ Deleting users by their email address:
 try {
     $auth->admin()->deleteUserByEmail($_POST['email']);
 }
-catch (\Delight\Auth\InvalidEmailException $e) {
+catch (\rockymc\Auth\InvalidEmailException $e) {
     // unknown email address
 }
 ```
@@ -813,10 +813,10 @@ Deleting users by their username:
 try {
     $auth->admin()->deleteUserByUsername($_POST['username']);
 }
-catch (\Delight\Auth\UnknownUsernameException $e) {
+catch (\rockymc\Auth\UnknownUsernameException $e) {
     // unknown username
 }
-catch (\Delight\Auth\AmbiguousUsernameException $e) {
+catch (\rockymc\Auth\AmbiguousUsernameException $e) {
     // ambiguous username
 }
 ```
@@ -825,30 +825,30 @@ catch (\Delight\Auth\AmbiguousUsernameException $e) {
 
 ```php
 try {
-    $auth->admin()->addRoleForUserById($userId, \Delight\Auth\Role::ADMIN);
+    $auth->admin()->addRoleForUserById($userId, \rockymc\Auth\Role::ADMIN);
 }
-catch (\Delight\Auth\UnknownIdException $e) {
+catch (\rockymc\Auth\UnknownIdException $e) {
     // unknown user ID
 }
 
 // or
 
 try {
-    $auth->admin()->addRoleForUserByEmail($userEmail, \Delight\Auth\Role::ADMIN);
+    $auth->admin()->addRoleForUserByEmail($userEmail, \rockymc\Auth\Role::ADMIN);
 }
-catch (\Delight\Auth\InvalidEmailException $e) {
+catch (\rockymc\Auth\InvalidEmailException $e) {
     // unknown email address
 }
 
 // or
 
 try {
-    $auth->admin()->addRoleForUserByUsername($username, \Delight\Auth\Role::ADMIN);
+    $auth->admin()->addRoleForUserByUsername($username, \rockymc\Auth\Role::ADMIN);
 }
-catch (\Delight\Auth\UnknownUsernameException $e) {
+catch (\rockymc\Auth\UnknownUsernameException $e) {
     // unknown username
 }
-catch (\Delight\Auth\AmbiguousUsernameException $e) {
+catch (\rockymc\Auth\AmbiguousUsernameException $e) {
     // ambiguous username
 }
 ```
@@ -857,30 +857,30 @@ catch (\Delight\Auth\AmbiguousUsernameException $e) {
 
 ```php
 try {
-    $auth->admin()->removeRoleForUserById($userId, \Delight\Auth\Role::ADMIN);
+    $auth->admin()->removeRoleForUserById($userId, \rockymc\Auth\Role::ADMIN);
 }
-catch (\Delight\Auth\UnknownIdException $e) {
+catch (\rockymc\Auth\UnknownIdException $e) {
     // unknown user ID
 }
 
 // or
 
 try {
-    $auth->admin()->removeRoleForUserByEmail($userEmail, \Delight\Auth\Role::ADMIN);
+    $auth->admin()->removeRoleForUserByEmail($userEmail, \rockymc\Auth\Role::ADMIN);
 }
-catch (\Delight\Auth\InvalidEmailException $e) {
+catch (\rockymc\Auth\InvalidEmailException $e) {
     // unknown email address
 }
 
 // or
 
 try {
-    $auth->admin()->removeRoleForUserByUsername($username, \Delight\Auth\Role::ADMIN);
+    $auth->admin()->removeRoleForUserByUsername($username, \rockymc\Auth\Role::ADMIN);
 }
-catch (\Delight\Auth\UnknownUsernameException $e) {
+catch (\rockymc\Auth\UnknownUsernameException $e) {
     // unknown username
 }
-catch (\Delight\Auth\AmbiguousUsernameException $e) {
+catch (\rockymc\Auth\AmbiguousUsernameException $e) {
     // ambiguous username
 }
 ```
@@ -889,14 +889,14 @@ catch (\Delight\Auth\AmbiguousUsernameException $e) {
 
 ```php
 try {
-    if ($auth->admin()->doesUserHaveRole($userId, \Delight\Auth\Role::ADMIN)) {
+    if ($auth->admin()->doesUserHaveRole($userId, \rockymc\Auth\Role::ADMIN)) {
         // the specified user is an administrator
     }
     else {
         // the specified user is *not* an administrator
     }
 }
-catch (\Delight\Auth\UnknownIdException $e) {
+catch (\rockymc\Auth\UnknownIdException $e) {
     // unknown user ID
 }
 ```
@@ -907,10 +907,10 @@ catch (\Delight\Auth\UnknownIdException $e) {
 try {
     $auth->admin()->logInAsUserById($_POST['id']);
 }
-catch (\Delight\Auth\UnknownIdException $e) {
+catch (\rockymc\Auth\UnknownIdException $e) {
     // unknown ID
 }
-catch (\Delight\Auth\EmailNotVerifiedException $e) {
+catch (\rockymc\Auth\EmailNotVerifiedException $e) {
     // email address not verified
 }
 
@@ -919,10 +919,10 @@ catch (\Delight\Auth\EmailNotVerifiedException $e) {
 try {
     $auth->admin()->logInAsUserByEmail($_POST['email']);
 }
-catch (\Delight\Auth\InvalidEmailException $e) {
+catch (\rockymc\Auth\InvalidEmailException $e) {
     // unknown email address
 }
-catch (\Delight\Auth\EmailNotVerifiedException $e) {
+catch (\rockymc\Auth\EmailNotVerifiedException $e) {
     // email address not verified
 }
 
@@ -931,13 +931,13 @@ catch (\Delight\Auth\EmailNotVerifiedException $e) {
 try {
     $auth->admin()->logInAsUserByUsername($_POST['username']);
 }
-catch (\Delight\Auth\UnknownUsernameException $e) {
+catch (\rockymc\Auth\UnknownUsernameException $e) {
     // unknown username
 }
-catch (\Delight\Auth\AmbiguousUsernameException $e) {
+catch (\rockymc\Auth\AmbiguousUsernameException $e) {
     // ambiguous username
 }
-catch (\Delight\Auth\EmailNotVerifiedException $e) {
+catch (\rockymc\Auth\EmailNotVerifiedException $e) {
     // email address not verified
 }
 ```
@@ -953,7 +953,7 @@ This library uses two cookies to keep state on the client: The first, whose name
 is the general (mandatory) session cookie. The second (optional) cookie is only used for [persistent logins](#keeping-the-user-logged-in) and its name can be retrieved as follows:
 
 ```php
-\Delight\Auth\Auth::createRememberCookieName();
+\rockymc\Auth\Auth::createRememberCookieName();
 ```
 
 #### Renaming the library’s cookies
@@ -1080,13 +1080,13 @@ You can change the attribute through one of the following means, in order of rec
 
 ```php
 $length = 24;
-$randomStr = \Delight\Auth\Auth::createRandomString($length);
+$randomStr = \rockymc\Auth\Auth::createRandomString($length);
 ```
 
 #### Creating a UUID v4 as per RFC 4122
 
 ```php
-$uuid = \Delight\Auth\Auth::createUuid();
+$uuid = \rockymc\Auth\Auth::createUuid();
 ```
 
 ### Reading and writing session data

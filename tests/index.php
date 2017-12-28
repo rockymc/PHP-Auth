@@ -29,7 +29,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 $db = new \PDO('sqlsrv:database=php_auth;server=127.0.0.1;charset=utf8mb4', 'root', 'monkey');
 
-$auth = new \Delight\Auth\Auth($db);
+$auth = new \rockymc\Auth\Auth($db);
 
 $result = \processRequestData($auth);
 
@@ -43,7 +43,7 @@ else {
 	\showGuestUserForm();
 }
 
-function processRequestData(\Delight\Auth\Auth $auth) {
+function processRequestData(\rockymc\Auth\Auth $auth) {
 	if (isset($_POST)) {
 		if (isset($_POST['action'])) {
 			if ($_POST['action'] === 'login') {
@@ -69,22 +69,22 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\InvalidEmailException $e) {
+				catch (\rockymc\Auth\InvalidEmailException $e) {
 					return 'wrong email address';
 				}
-				catch (\Delight\Auth\UnknownUsernameException $e) {
+				catch (\rockymc\Auth\UnknownUsernameException $e) {
 					return 'unknown username';
 				}
-				catch (\Delight\Auth\AmbiguousUsernameException $e) {
+				catch (\rockymc\Auth\AmbiguousUsernameException $e) {
 					return 'ambiguous username';
 				}
-				catch (\Delight\Auth\InvalidPasswordException $e) {
+				catch (\rockymc\Auth\InvalidPasswordException $e) {
 					return 'wrong password';
 				}
-				catch (\Delight\Auth\EmailNotVerifiedException $e) {
+				catch (\rockymc\Auth\EmailNotVerifiedException $e) {
 					return 'email address not verified';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -120,19 +120,19 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						return $auth->registerWithUniqueUsername($_POST['email'], $_POST['password'], $_POST['username'], $callback);
 					}
 				}
-				catch (\Delight\Auth\InvalidEmailException $e) {
+				catch (\rockymc\Auth\InvalidEmailException $e) {
 					return 'invalid email address';
 				}
-				catch (\Delight\Auth\InvalidPasswordException $e) {
+				catch (\rockymc\Auth\InvalidPasswordException $e) {
 					return 'invalid password';
 				}
-				catch (\Delight\Auth\UserAlreadyExistsException $e) {
+				catch (\rockymc\Auth\UserAlreadyExistsException $e) {
 					return 'email address already exists';
 				}
-				catch (\Delight\Auth\DuplicateUsernameException $e) {
+				catch (\rockymc\Auth\DuplicateUsernameException $e) {
 					return 'username already exists';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -155,16 +155,16 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
+				catch (\rockymc\Auth\InvalidSelectorTokenPairException $e) {
 					return 'invalid token';
 				}
-				catch (\Delight\Auth\TokenExpiredException $e) {
+				catch (\rockymc\Auth\TokenExpiredException $e) {
 					return 'token expired';
 				}
-				catch (\Delight\Auth\UserAlreadyExistsException $e) {
+				catch (\rockymc\Auth\UserAlreadyExistsException $e) {
 					return 'email address already exists';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -186,10 +186,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\ConfirmationRequestNotFound $e) {
+				catch (\rockymc\Auth\ConfirmationRequestNotFound $e) {
 					return 'no request found';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -211,10 +211,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\ConfirmationRequestNotFound $e) {
+				catch (\rockymc\Auth\ConfirmationRequestNotFound $e) {
 					return 'no request found';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -236,16 +236,16 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\InvalidEmailException $e) {
+				catch (\rockymc\Auth\InvalidEmailException $e) {
 					return 'invalid email address';
 				}
-				catch (\Delight\Auth\EmailNotVerifiedException $e) {
+				catch (\rockymc\Auth\EmailNotVerifiedException $e) {
 					return 'email address not verified';
 				}
-				catch (\Delight\Auth\ResetDisabledException $e) {
+				catch (\rockymc\Auth\ResetDisabledException $e) {
 					return 'password reset disabled';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -255,19 +255,19 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
+				catch (\rockymc\Auth\InvalidSelectorTokenPairException $e) {
 					return 'invalid token';
 				}
-				catch (\Delight\Auth\TokenExpiredException $e) {
+				catch (\rockymc\Auth\TokenExpiredException $e) {
 					return 'token expired';
 				}
-				catch (\Delight\Auth\ResetDisabledException $e) {
+				catch (\rockymc\Auth\ResetDisabledException $e) {
 					return 'password reset disabled';
 				}
-				catch (\Delight\Auth\InvalidPasswordException $e) {
+				catch (\rockymc\Auth\InvalidPasswordException $e) {
 					return 'invalid password';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -275,10 +275,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 				try {
 					return $auth->reconfirmPassword($_POST['password']) ? 'correct' : 'wrong';
 				}
-				catch (\Delight\Auth\NotLoggedInException $e) {
+				catch (\rockymc\Auth\NotLoggedInException $e) {
 					return 'not logged in';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -288,13 +288,13 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\NotLoggedInException $e) {
+				catch (\rockymc\Auth\NotLoggedInException $e) {
 					return 'not logged in';
 				}
-				catch (\Delight\Auth\InvalidPasswordException $e) {
+				catch (\rockymc\Auth\InvalidPasswordException $e) {
 					return 'invalid password(s)';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -304,10 +304,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\NotLoggedInException $e) {
+				catch (\rockymc\Auth\NotLoggedInException $e) {
 					return 'not logged in';
 				}
-				catch (\Delight\Auth\InvalidPasswordException $e) {
+				catch (\rockymc\Auth\InvalidPasswordException $e) {
 					return 'invalid password';
 				}
 			}
@@ -329,19 +329,19 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\InvalidEmailException $e) {
+				catch (\rockymc\Auth\InvalidEmailException $e) {
 					return 'invalid email address';
 				}
-				catch (\Delight\Auth\UserAlreadyExistsException $e) {
+				catch (\rockymc\Auth\UserAlreadyExistsException $e) {
 					return 'email address already exists';
 				}
-				catch (\Delight\Auth\EmailNotVerifiedException $e) {
+				catch (\rockymc\Auth\EmailNotVerifiedException $e) {
 					return 'account not verified';
 				}
-				catch (\Delight\Auth\NotLoggedInException $e) {
+				catch (\rockymc\Auth\NotLoggedInException $e) {
 					return 'not logged in';
 				}
-				catch (\Delight\Auth\TooManyRequestsException $e) {
+				catch (\rockymc\Auth\TooManyRequestsException $e) {
 					return 'too many requests';
 				}
 			}
@@ -351,7 +351,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 					return 'ok';
 				}
-				catch (\Delight\Auth\NotLoggedInException $e) {
+				catch (\rockymc\Auth\NotLoggedInException $e) {
 					return 'not logged in';
 				}
 			}
@@ -378,16 +378,16 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						return $auth->admin()->createUserWithUniqueUsername($_POST['email'], $_POST['password'], $_POST['username']);
 					}
 				}
-				catch (\Delight\Auth\InvalidEmailException $e) {
+				catch (\rockymc\Auth\InvalidEmailException $e) {
 					return 'invalid email address';
 				}
-				catch (\Delight\Auth\InvalidPasswordException $e) {
+				catch (\rockymc\Auth\InvalidPasswordException $e) {
 					return 'invalid password';
 				}
-				catch (\Delight\Auth\UserAlreadyExistsException $e) {
+				catch (\rockymc\Auth\UserAlreadyExistsException $e) {
 					return 'email address already exists';
 				}
-				catch (\Delight\Auth\DuplicateUsernameException $e) {
+				catch (\rockymc\Auth\DuplicateUsernameException $e) {
 					return 'username already exists';
 				}
 			}
@@ -396,7 +396,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					try {
 						$auth->admin()->deleteUserById($_POST['id']);
 					}
-					catch (\Delight\Auth\UnknownIdException $e) {
+					catch (\rockymc\Auth\UnknownIdException $e) {
 						return 'unknown ID';
 					}
 				}
@@ -404,7 +404,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					try {
 						$auth->admin()->deleteUserByEmail($_POST['email']);
 					}
-					catch (\Delight\Auth\InvalidEmailException $e) {
+					catch (\rockymc\Auth\InvalidEmailException $e) {
 						return 'unknown email address';
 					}
 				}
@@ -412,10 +412,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					try {
 						$auth->admin()->deleteUserByUsername($_POST['username']);
 					}
-					catch (\Delight\Auth\UnknownUsernameException $e) {
+					catch (\rockymc\Auth\UnknownUsernameException $e) {
 						return 'unknown username';
 					}
-					catch (\Delight\Auth\AmbiguousUsernameException $e) {
+					catch (\rockymc\Auth\AmbiguousUsernameException $e) {
 						return 'ambiguous username';
 					}
 				}
@@ -431,7 +431,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						try {
 							$auth->admin()->addRoleForUserById($_POST['id'], $_POST['role']);
 						}
-						catch (\Delight\Auth\UnknownIdException $e) {
+						catch (\rockymc\Auth\UnknownIdException $e) {
 							return 'unknown ID';
 						}
 					}
@@ -439,7 +439,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						try {
 							$auth->admin()->addRoleForUserByEmail($_POST['email'], $_POST['role']);
 						}
-						catch (\Delight\Auth\InvalidEmailException $e) {
+						catch (\rockymc\Auth\InvalidEmailException $e) {
 							return 'unknown email address';
 						}
 					}
@@ -447,10 +447,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						try {
 							$auth->admin()->addRoleForUserByUsername($_POST['username'], $_POST['role']);
 						}
-						catch (\Delight\Auth\UnknownUsernameException $e) {
+						catch (\rockymc\Auth\UnknownUsernameException $e) {
 							return 'unknown username';
 						}
-						catch (\Delight\Auth\AmbiguousUsernameException $e) {
+						catch (\rockymc\Auth\AmbiguousUsernameException $e) {
 							return 'ambiguous username';
 						}
 					}
@@ -470,7 +470,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						try {
 							$auth->admin()->removeRoleForUserById($_POST['id'], $_POST['role']);
 						}
-						catch (\Delight\Auth\UnknownIdException $e) {
+						catch (\rockymc\Auth\UnknownIdException $e) {
 							return 'unknown ID';
 						}
 					}
@@ -478,7 +478,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						try {
 							$auth->admin()->removeRoleForUserByEmail($_POST['email'], $_POST['role']);
 						}
-						catch (\Delight\Auth\InvalidEmailException $e) {
+						catch (\rockymc\Auth\InvalidEmailException $e) {
 							return 'unknown email address';
 						}
 					}
@@ -486,10 +486,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						try {
 							$auth->admin()->removeRoleForUserByUsername($_POST['username'], $_POST['role']);
 						}
-						catch (\Delight\Auth\UnknownUsernameException $e) {
+						catch (\rockymc\Auth\UnknownUsernameException $e) {
 							return 'unknown username';
 						}
-						catch (\Delight\Auth\AmbiguousUsernameException $e) {
+						catch (\rockymc\Auth\AmbiguousUsernameException $e) {
 							return 'ambiguous username';
 						}
 					}
@@ -509,7 +509,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						try {
 							return $auth->admin()->doesUserHaveRole($_POST['id'], $_POST['role']) ? 'yes' : 'no';
 						}
-						catch (\Delight\Auth\UnknownIdException $e) {
+						catch (\rockymc\Auth\UnknownIdException $e) {
 							return 'unknown ID';
 						}
 					}
@@ -528,10 +528,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 						return 'ok';
 					}
-					catch (\Delight\Auth\UnknownIdException $e) {
+					catch (\rockymc\Auth\UnknownIdException $e) {
 						return 'unknown ID';
 					}
-					catch (\Delight\Auth\EmailNotVerifiedException $e) {
+					catch (\rockymc\Auth\EmailNotVerifiedException $e) {
 						return 'email address not verified';
 					}
 				}
@@ -546,10 +546,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 						return 'ok';
 					}
-					catch (\Delight\Auth\InvalidEmailException $e) {
+					catch (\rockymc\Auth\InvalidEmailException $e) {
 						return 'unknown email address';
 					}
-					catch (\Delight\Auth\EmailNotVerifiedException $e) {
+					catch (\rockymc\Auth\EmailNotVerifiedException $e) {
 						return 'email address not verified';
 					}
 				}
@@ -564,13 +564,13 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 
 						return 'ok';
 					}
-					catch (\Delight\Auth\UnknownUsernameException $e) {
+					catch (\rockymc\Auth\UnknownUsernameException $e) {
 						return 'unknown username';
 					}
-					catch (\Delight\Auth\AmbiguousUsernameException $e) {
+					catch (\rockymc\Auth\AmbiguousUsernameException $e) {
 						return 'ambiguous username';
 					}
-					catch (\Delight\Auth\EmailNotVerifiedException $e) {
+					catch (\rockymc\Auth\EmailNotVerifiedException $e) {
 						return 'email address not verified';
 					}
 				}
@@ -587,7 +587,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 	return null;
 }
 
-function showDebugData(\Delight\Auth\Auth $auth, $result) {
+function showDebugData(\rockymc\Auth\Auth $auth, $result) {
 	echo '<pre>';
 
 	echo 'Last operation' . "\t\t\t\t";
@@ -621,13 +621,13 @@ function showDebugData(\Delight\Auth\Auth $auth, $result) {
 	echo "\n";
 
 	echo 'Roles (super moderator)' . "\t\t\t";
-	\var_dump($auth->hasRole(\Delight\Auth\Role::SUPER_MODERATOR));
+	\var_dump($auth->hasRole(\rockymc\Auth\Role::SUPER_MODERATOR));
 
 	echo 'Roles (developer *or* manager)' . "\t\t";
-	\var_dump($auth->hasAnyRole(\Delight\Auth\Role::DEVELOPER, \Delight\Auth\Role::MANAGER));
+	\var_dump($auth->hasAnyRole(\rockymc\Auth\Role::DEVELOPER, \rockymc\Auth\Role::MANAGER));
 
 	echo 'Roles (developer *and* manager)' . "\t\t";
-	\var_dump($auth->hasAllRoles(\Delight\Auth\Role::DEVELOPER, \Delight\Auth\Role::MANAGER));
+	\var_dump($auth->hasAllRoles(\rockymc\Auth\Role::DEVELOPER, \rockymc\Auth\Role::MANAGER));
 
 	echo "\n";
 
@@ -640,37 +640,37 @@ function showDebugData(\Delight\Auth\Auth $auth, $result) {
 	echo 'Session name' . "\t\t\t\t";
 	\var_dump(\session_name());
 	echo 'Auth::createRememberCookieName()' . "\t";
-	\var_dump(\Delight\Auth\Auth::createRememberCookieName());
+	\var_dump(\rockymc\Auth\Auth::createRememberCookieName());
 	echo "\n";
 
 	echo 'Auth::createCookieName(\'session\')' . "\t";
-	\var_dump(\Delight\Auth\Auth::createCookieName('session'));
+	\var_dump(\rockymc\Auth\Auth::createCookieName('session'));
 	echo 'Auth::createRandomString()' . "\t\t";
-	\var_dump(\Delight\Auth\Auth::createRandomString());
+	\var_dump(\rockymc\Auth\Auth::createRandomString());
 	echo 'Auth::createUuid()' . "\t\t\t";
-	\var_dump(\Delight\Auth\Auth::createUuid());
+	\var_dump(\rockymc\Auth\Auth::createUuid());
 
 	echo '</pre>';
 }
 
-function convertStatusToText(\Delight\Auth\Auth $auth) {
+function convertStatusToText(\rockymc\Auth\Auth $auth) {
 	if ($auth->isLoggedIn() === true) {
-		if ($auth->getStatus() === \Delight\Auth\Status::NORMAL && $auth->isNormal()) {
+		if ($auth->getStatus() === \rockymc\Auth\Status::NORMAL && $auth->isNormal()) {
 			return 'normal';
 		}
-		elseif ($auth->getStatus() === \Delight\Auth\Status::ARCHIVED && $auth->isArchived()) {
+		elseif ($auth->getStatus() === \rockymc\Auth\Status::ARCHIVED && $auth->isArchived()) {
 			return 'archived';
 		}
-		elseif ($auth->getStatus() === \Delight\Auth\Status::BANNED && $auth->isBanned()) {
+		elseif ($auth->getStatus() === \rockymc\Auth\Status::BANNED && $auth->isBanned()) {
 			return 'banned';
 		}
-		elseif ($auth->getStatus() === \Delight\Auth\Status::LOCKED && $auth->isLocked()) {
+		elseif ($auth->getStatus() === \rockymc\Auth\Status::LOCKED && $auth->isLocked()) {
 			return 'locked';
 		}
-		elseif ($auth->getStatus() === \Delight\Auth\Status::PENDING_REVIEW && $auth->isPendingReview()) {
+		elseif ($auth->getStatus() === \rockymc\Auth\Status::PENDING_REVIEW && $auth->isPendingReview()) {
 			return 'pending review';
 		}
-		elseif ($auth->getStatus() === \Delight\Auth\Status::SUSPENDED && $auth->isSuspended()) {
+		elseif ($auth->getStatus() === \rockymc\Auth\Status::SUSPENDED && $auth->isSuspended()) {
 			return 'suspended';
 		}
 	}
@@ -689,7 +689,7 @@ function showGeneralForm() {
 	echo '</form>';
 }
 
-function showAuthenticatedUserForm(\Delight\Auth\Auth $auth) {
+function showAuthenticatedUserForm(\rockymc\Auth\Auth $auth) {
 	echo '<form action="" method="post" accept-charset="utf-8">';
 	echo '<input type="hidden" name="action" value="reconfirmPassword" />';
 	echo '<input type="text" name="password" placeholder="Password" /> ';
@@ -921,7 +921,7 @@ function showConfirmEmailForm() {
 }
 
 function createRolesOptions() {
-	$roleReflection = new ReflectionClass(\Delight\Auth\Role::class);
+	$roleReflection = new ReflectionClass(\rockymc\Auth\Role::class);
 
 	$out = '';
 

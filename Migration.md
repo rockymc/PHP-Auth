@@ -138,13 +138,13 @@ $ composer require delight-im/auth
 
  * The method `setThrottlingOptions` has been removed.
 
- * The method `changePassword` may now throw an additional `\Delight\Auth\TooManyRequestsException` if too many attempts have been made without the correct old password.
+ * The method `changePassword` may now throw an additional `\rockymc\Auth\TooManyRequestsException` if too many attempts have been made without the correct old password.
 
- * The two methods `confirmEmail` and `confirmEmailAndSignIn` may now throw an additional `\Delight\Auth\UserAlreadyExistsException` if an attempt has been made to change the email address to an address that has become occupied in the meantime.
+ * The two methods `confirmEmail` and `confirmEmailAndSignIn` may now throw an additional `\rockymc\Auth\UserAlreadyExistsException` if an attempt has been made to change the email address to an address that has become occupied in the meantime.
 
- * The two methods `forgotPassword` and `resetPassword` may now throw an additional `\Delight\Auth\ResetDisabledException` if the user has disabled password resets for their account.
+ * The two methods `forgotPassword` and `resetPassword` may now throw an additional `\rockymc\Auth\ResetDisabledException` if the user has disabled password resets for their account.
 
- * The `Base64` class is now an external module and has been moved from the namespace `Delight\Auth` to the namespace `Delight\Base64`. The interface and the return values are not compatible with those from previous versions anymore.
+ * The `Base64` class is now an external module and has been moved from the namespace `rockymc\Auth` to the namespace `Delight\Base64`. The interface and the return values are not compatible with those from previous versions anymore.
 
 ## From `v4.x.x` to `v5.x.x`
 

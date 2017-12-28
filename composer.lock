@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "54d541ae3c5ba25b0cc06688d2b65467",
+    "content-hash": "b3c99a56d4c1d09abc6d56bc2b0e5588",
     "packages": [
         {
             "name": "delight-im/base64",
