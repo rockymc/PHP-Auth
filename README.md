@@ -1166,3 +1166,7 @@ All contributions are welcome! If you wish to contribute, please create an issue
 ## License
 
 This project is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## This fork
+
+This fork includes minor changes to allow for MSSQL compatibility
