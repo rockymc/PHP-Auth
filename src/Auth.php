@@ -832,7 +832,7 @@ final class Auth extends UserManager {
 	private function resendConfirmationForColumnValue($columnName, $columnValue, callable $callback) {
 		try {
 			$latestAttempt = $this->db->selectRow(
-				'SELECT user_id, email FROM ' . $this->dbTablePrefix . 'users_confirmations WHERE ' . $columnName . ' = ? ORDER BY id DESC LIMIT 1 OFFSET 0',
+				'SELECT TOP 1 user_id, email FROM ' . $this->dbTablePrefix . 'users_confirmations WHERE ' . $columnName . ' = ? ORDER BY id DESC',
 				[ $columnValue ]
 			);
 		}

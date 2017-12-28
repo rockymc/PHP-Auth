@@ -472,7 +472,7 @@ final class Administration extends UserManager {
 	private function logInAsUserByColumnValue($columnName, $columnValue) {
 		try {
 			$users = $this->db->select(
-				'SELECT verified, id, email, username, status, roles_mask FROM ' . $this->dbTablePrefix . 'users WHERE ' . $columnName . ' = ? LIMIT 2 OFFSET 0',
+				'SELECT TOP 2 verified, id, email, username, status, roles_mask FROM ' . $this->dbTablePrefix . 'users WHERE ' . $columnName . ' = ?',
 				[ $columnValue ]
 			);
 		}
