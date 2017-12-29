@@ -12,7 +12,7 @@
     "ext-openssl": "*",
     "delight-im/base64": "^1.0",
     "delight-im/cookie": "^3.1",
-    "rockymc/db": "dev-mssql"
+    "delight-im/db": "dev-mssql"
   },
   "type": "library",
   "keywords": [
